@@ -1,0 +1,12 @@
+[Unit]
+Description=Run EVEQTrading region batch pipeline on a schedule
+
+[Timer]
+OnBootSec=5min
+OnUnitInactiveSec=30min
+AccuracySec=1min
+Persistent=true
+Unit=eveq-region-batch.service
+
+[Install]
+WantedBy=timers.target

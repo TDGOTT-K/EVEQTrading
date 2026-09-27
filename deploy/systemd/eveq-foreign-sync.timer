@@ -1,0 +1,11 @@
+[Unit]
+Description=Pull EVEQTrading foreign ingest state on a schedule
+
+[Timer]
+OnCalendar=*-*-* *:20,50:00
+AccuracySec=1min
+Persistent=true
+Unit=eveq-foreign-sync.service
+
+[Install]
+WantedBy=timers.target

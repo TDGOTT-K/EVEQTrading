@@ -1,0 +1,11 @@
+[Unit]
+Description=Run EVEQTrading region order mirror worker every 5 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=5min
+Persistent=true
+Unit=eveq-region-order-mirror-worker.service
+
+[Install]
+WantedBy=timers.target

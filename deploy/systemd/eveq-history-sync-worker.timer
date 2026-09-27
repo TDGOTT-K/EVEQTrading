@@ -1,0 +1,12 @@
+[Unit]
+Description=Run EVEQTrading history sync worker on a schedule
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=10min
+AccuracySec=1min
+Persistent=true
+Unit=eveq-history-sync-worker.service
+
+[Install]
+WantedBy=timers.target

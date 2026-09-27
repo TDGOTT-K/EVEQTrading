@@ -1,0 +1,11 @@
+[Unit]
+Description=Run EVEQTrading retention cleanup on a schedule
+
+[Timer]
+OnCalendar=*-*-* 04:30:00
+AccuracySec=5min
+Persistent=true
+Unit=eveq-retention-cleanup.service
+
+[Install]
+WantedBy=timers.target

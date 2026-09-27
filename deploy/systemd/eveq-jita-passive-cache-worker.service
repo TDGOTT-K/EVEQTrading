@@ -1,0 +1,19 @@
+[Unit]
+Description=EVEQTrading jita passive cache worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/srv/eveqtrading/app/EVEQTrading
+EnvironmentFile=/srv/eveqtrading/secrets/eveq-foreign-jita-passive-cache-worker.env
+ExecStart=/usr/bin/bash /srv/eveqtrading/app/EVEQTrading/deploy/scripts/run_jita_passive_cache_worker.sh
+SuccessExitStatus=3
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Run EVEQTrading jita passive cache worker every 15 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=15min
+Persistent=true
+Unit=eveq-jita-passive-cache-worker.service
+
+[Install]
+WantedBy=timers.target

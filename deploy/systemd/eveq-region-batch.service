@@ -1,0 +1,18 @@
+[Unit]
+Description=EVEQTrading region batch pipeline
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/srv/eveqtrading/app/EVEQTrading
+EnvironmentFile=/srv/eveqtrading/secrets/eveq-foreign-batch.env
+ExecStart=/usr/bin/bash /srv/eveqtrading/app/EVEQTrading/deploy/scripts/run_region_batch_pipeline.sh
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=multi-user.target

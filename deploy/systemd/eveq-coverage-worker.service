@@ -1,0 +1,19 @@
+[Unit]
+Description=EVEQTrading coverage worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/srv/eveqtrading/app/EVEQTrading
+EnvironmentFile=/srv/eveqtrading/secrets/eveq-foreign-coverage-worker.env
+ExecStart=/srv/eveqtrading/app/EVEQTrading/deploy/scripts/run_coverage_worker.sh
+SuccessExitStatus=3
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=multi-user.target
